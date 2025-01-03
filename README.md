@@ -1,9 +1,5 @@
 # D-FLIPDLOP-NEGEDGE
 
-**NAME:LOKESH.M**
-
-**REF NO:24009743**
-
 **AIM:**
 
 To implement  D flipflop using verilog and validating their functionality using their functional tables
@@ -30,36 +26,46 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
+**Procedure**
+```
+Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
+
+Declare Inputs and Outputs: Declare input and output ports for the module.
+
+Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+
+Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+
+Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
+
+Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
+```
 **PROGRAM**
-```
-Developed by: LOKESH.M RegisterNumber;24009743
-```
+Developed by: LOKESH M
 
-D FlipFlop
+RegisterNumber: 24009743
 ```
-module d_ff_neg_edge (d, clk, rst, q);
-  input d, clk, rst;
-  output reg q;
-
-  always @(negedge clk or posedge rst) begin
-    if (rst)
-      q <= 0; // Reset the flip-flop
-    else
-      q <= d; // D input is passed to Q on the negative clock edge
-  end
-endmodule
+module DFLIPFLOPNEGEDGE(D,Clock,reset,Q);
+input D,Clock,reset;
+output reg Q;
+always @ (negedge Clock)// use negative edge clock for triggereing condition 
+if(!reset)//compute D flipflop logic here
+       Q <= 0;
+  else
+       Q <= D; 
+   
+ endmodule
 ```
 
 **RTL LOGIC FOR FLIPFLOPS**
-
-![image](https://github.com/user-attachments/assets/8d4744f9-2437-418b-b9b0-c6cc9b4663ce)
+![image](https://github.com/Priyanghaofficial/D-FLIPDLOP-NEGEDGE/assets/147121154/4631a0e8-5760-467a-aa4a-434b737a9680)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![image](https://github.com/Priyanghaofficial/D-FLIPDLOP-NEGEDGE/assets/147121154/26b0fcc4-1b4c-4aaa-8081-30548e8eaf17)
 
-![image](https://github.com/user-attachments/assets/d3d31607-0d99-4cac-9e82-af7c1c367a41)
+**RESULTS:**
 
-**RESULTS**
-
-Program for D flipflop was verified in quartus using Verilog programming.
-
+Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables.
